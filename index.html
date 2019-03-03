@@ -9,20 +9,22 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <div>
-        Начало: время-<select id="startHorse"></select>
-        <select id="startMin"></select>
-    </div>
+    <div class="container">
+        <div>
+            Начало:  время -- <select id="startHorse"></select>
+            <select id="startMin"></select>
+        </div>
 
-    <div>
-            Конец: время-<select id="finishHorse"></select>
-            <select id="finishMin"></select>
-    </div>
-    <hr>
+        <div>
+                Конец:   время -- <select id="finishHorse"></select>
+                <select id="finishMin"></select>
+        </div>
+        <hr>
 
-    <span>Сотрудник 1:</span> <span  id="first"> </span><br>
-    <span>Сотрудник 2:</span><span id="second"> </span><br>
-    <span>Сотрудник 3:</span><span id="third"> </span><br>
-    <button onclick="result()">Result</button>
+        <span class="people">Сотрудник 1:</span><span  id="first"> </span><br><br>
+        <span class="people">Сотрудник 2:</span><span id="second"> </span><br><br>
+        <span class="people">Сотрудник 3:</span><span id="third"> </span><br><br>
+        <button onclick="result()">Result</button>
+    </div>
 </body>
 </html>
