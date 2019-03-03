@@ -6,19 +6,28 @@ body {
     margin-top: 30px;
     display: flex;
     background: rgb(2, 75, 94);
-    font-size: 18px;
+    font-size: 16px;
     color: white;
    justify-content: center;
 }
 button {
     background: rgb(29, 143, 48);
-    font-size: 18px;
+    font-size: 16px;
     width: 200px;
+    box-shadow: 0 0 30px rgba(253, 251, 251, 0.5);
 }
 #startMin, #startHorse, #finishHorse, #finishMin {
-    font-size: 14px;
+    font-size: 12px;
     margin-left: 10px;
+    box-shadow: 0 0 30px rgb(0, 0, 0);
 }
 #finishHorse {
-    margin-left: 18px;
+    margin-left: 16px;
+}
+#first, #second, #third {
+    background: rgb(0, 6, 8);
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 0 0 30px rgba(253, 251, 251, 0.5);
+    margin-left: 5px;
 }

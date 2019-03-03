@@ -1,28 +1,25 @@
-    const first = document.getElementById('first');
-    const second = document.getElementById('second');
-    const third = document.getElementById('third');
+const first = document.getElementById('first');
+const second = document.getElementById('second');
+const third = document.getElementById('third');
+const startHorse = document.getElementById('startHorse');
+const startSelect = document.getElementById('startMin');
+const finishHorse = document.getElementById('finishHorse');
+const finishMin = document.getElementById('finishMin');
 
-    const startHorse = document.getElementById('startHorse');
-    const startSelect = document.getElementById('startMin');
+const arrFinishHorse = createSelect(24, 6);
+const arrStartHorse = createSelect(24, 21);
+const arrFinishMin = createSelect(60, 30);
+const arrStartMin = createSelect(60, 0);
 
-    const finishHorse = document.getElementById('finishHorse');
-    const finishMin = document.getElementById('finishMin');
+function createSelect(el1, el2) {
+    let result = `${Array(el1).fill('').map((el, i) => {
+        return i === el2 ? `<option selected>${i}</option>` : `<option>${i}</option>`
+    })}`
+    return result;
+}
 
-    const arrStartHorse = `${Array(24).fill('').map((el, i) => {
-        return i === 21 ? `<option selected>${i}</option>` : `<option>${i}</option>`
-    })}`
-    const arrStartMin = `${Array(60).fill('').map((el, i) => {
-        return i === 0 ? `<option selected>${i}</option>` : `<option>${i}</option>`
-    })}`
-    const arrFinishHorse = `${Array(24).fill('').map((el, i) => {
-        return i === 6 ? `<option selected>${i}</option>` : `<option>${i}</option>`
-    })}`
-    const arrFinishMin = `${Array(60).fill('').map((el, i) => {
-        return i === 30 ? `<option selected>${i}</option>` : `<option>${i}</option>`
-    })}`
-
-    startHorse.innerHTML = arrStartHorse; startMin.innerHTML = arrStartMin;
-    finishHorse.innerHTML = arrFinishHorse; finishMin.innerHTML = arrFinishMin;
+startHorse.innerHTML = arrStartHorse; startMin.innerHTML = arrStartMin;
+finishHorse.innerHTML = arrFinishHorse; finishMin.innerHTML = arrFinishMin;
     
 function result() {
     let dataStart = new Date(); dataStart.setHours(startHorse.value); dataStart.setMinutes(startMin.value);
@@ -38,7 +35,7 @@ function result() {
     function resultForFirst() {
         let difference =  dataFinish.getTime() - dataStart.getTime();
         let res = dataStart.getTime() + (difference / 3) * 2;
-        return `___${dataStart.toString().substr(16, 05)} 
+        return `${dataStart.toString().substr(16, 05)} 
             --- ${(new Date(1970, 0, 1, 2, 0, 0, res)).toString().substr(16, 05)}`;   
     }
 
@@ -46,7 +43,7 @@ function result() {
         let difference = dataFinish.getTime() - dataStart.getTime();
         let res = dataStart.getTime() + ((difference / 3) * 2) / 2;
         let res2 = dataStart.getTime() + (difference / 3) * 2;
-        return `___${dataStart.toString().substr(16, 05)} 
+        return `${dataStart.toString().substr(16, 05)} 
             --- ${(new Date(1970, 0, 1, 2, 0, 0, res)).toString().substr(16, 05)} ||
             ${(new Date(1970, 0, 1, 2, 0, 0, res2)).toString().substr(16, 05)} 
             --- ${dataFinish.toString().substr(16, 05)}`;   
@@ -57,13 +54,12 @@ function result() {
         let res = dataFinish.getTime() - (difference / 3) * 2;
         let horse = Math.round((difference / 3) * 2 / 100 / 60 / 60);
         let min =  (difference / 3) * 2 / 100 / 60 / 60 / 60;
-        return `___${(new Date(1970, 0, 1, 2, 0, 0, res)).toString().substr(16, 05)} 
+        return `${(new Date(1970, 0, 1, 2, 0, 0, res)).toString().substr(16, 05)} 
             --- ${dataFinish.toString().substr(16, 05)}<br><br>
            Каждому получется: ${convertMS((difference / 3) * 2)}`;   
     }
 
     function convertMS(ms) {
-        console.log(ms)
         var d, h, m, s;
         s = Math.floor(ms / 1000);
         m = Math.floor(s / 60);
