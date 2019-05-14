@@ -17,7 +17,7 @@ function handler(e) {
         let difference = Date.parse(dateFinish) - Date.parse(dateStart)
         if (difference < 0) return alert('Error: Дата начала не может быль больше даты конца.')  
 
-        people1.innerHTML = `>>>${getDateForPeople1(difference, dateStart)[0].toLocaleString().slice(11, 17)}
+        people1.innerHTML = `>>>${getDateForPeople1(difference, dateStart)[0].toLocaleString().slice(10, 16)}
             ---${getDateForPeople1(difference, dateStart)[1].toLocaleString().slice(11, 17)}`
         people2.innerHTML = `>>>${getDateForPeople2(difference, dateStart, dateFinish)[0].toLocaleString().slice(11, 17)}
             ---${getDateForPeople2(difference, dateStart, dateFinish)[1].toLocaleString().slice(11, 17)}
